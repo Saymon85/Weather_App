@@ -34,10 +34,14 @@ const updateDOM = (data) => {
     if(card.classList.contains('d-none')){
         card.classList.remove('d-none');
     }
+
+    // show weather icon
     
     const iconSrc = `assets/img/icons/${weather.WeatherIcon}.svg`;
 
     icon.setAttribute('src', iconSrc);
+    
+    // show day/night picture
     
     let timeSrc = null;
 
