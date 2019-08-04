@@ -1,4 +1,4 @@
-const key = "CPoLBAnl7yAuOnwi6nSgfQG5RRnJfr7l";
+const key = "pR3naWG4l0spTNI8QdBxTY1LD3uEDdea";
 
 
 // Get weather for the city
@@ -10,7 +10,7 @@ const getWeather = async (cityID) => {
     const response = await fetch(baseUrl + queryString);
     const data = await response.json();
 
-    return data[0];
+    return data[0]; 
 }
 // Get city ID 
 const getCity = async (city) => {
@@ -23,8 +23,3 @@ const getCity = async (city) => {
 
     return data[0];
 }
-
-getCity('belgrade').then( data => {
-    return getWeather(data.Key);
-}).then(data => console.log(data))
-  .catch( err => console.log(err));
