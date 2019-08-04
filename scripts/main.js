@@ -1,6 +1,8 @@
 const cityForm = document.querySelector('form');
 const card = document.querySelector('.card');
 const details = document.querySelector('.details');
+const time = document.querySelector('img.time');
+const icon = document.querySelector('.icon img');
 
 const updateCity = async (city) => {
 
@@ -14,9 +16,9 @@ const updateCity = async (city) => {
 }
 
 const updateDOM = (data) => {
-    
-    const cityDetails = data.cityDetails;
-    const weather = data.weather;
+
+    // destructure properties
+    const {cityDetails, weather } = data;
 
     // update DOM with data fetched from API
 
@@ -31,7 +33,21 @@ const updateDOM = (data) => {
     // remove d-none class if present
     if(card.classList.contains('d-none')){
         card.classList.remove('d-none');
-    }    
+    }
+    
+    const iconSrc = `assets/img/icons/${weather.WeatherIcon}.svg`;
+
+    icon.setAttribute('src', iconSrc);
+    
+    let timeSrc = null;
+
+    if(weather.IsDayTime){
+        timeSrc = 'assets/img/day.svg';
+    }else{
+        timeSrc = 'assets/img/night.svg';
+    }
+
+    time.setAttribute('src', timeSrc);
 }
 
 
