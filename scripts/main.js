@@ -42,14 +42,8 @@ const updateDOM = (data) => {
     icon.setAttribute('src', iconSrc);
     
     // show day/night picture
-    
-    let timeSrc = null;
 
-    if(weather.IsDayTime){
-        timeSrc = 'assets/img/day.svg';
-    }else{
-        timeSrc = 'assets/img/night.svg';
-    }
+    let timeSrc = weather.IsDayTime ? 'assets/img/day.svg' : 'assets/img/night.svg';
 
     time.setAttribute('src', timeSrc);
 }
